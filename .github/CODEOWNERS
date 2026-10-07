@@ -1,0 +1,6 @@
+Reviewing a PR (what you do as the reviewer):
+
+Open Files changed. Read the diff, not just the description.
+Click the + beside a line to leave a comment. Use Start a review, so comments are sent together.
+Finish with Approve, Comment, or Request changes.
+Review for: correctness, the layer rules (no business logic in controllers), naming, tests, and secrets.
