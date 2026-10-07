@@ -8,7 +8,7 @@ public class HelloController {
 
     @GetMapping("/")
     public String home() {
-        return "TalentHub is running. Empowering talents in Gesuba, Wolaita Zone.";
+        return "TalentHub: Gesuba's home for hackathons.";
     }
 
     @GetMapping("/api/health")
