@@ -8,11 +8,7 @@ public class HelloController {
 
     @GetMapping("/")
     public String home() {
-<<<<<<< HEAD
         return "TalentHub: Gesuba's home for hackathons.";
-=======
-        return "TalentHub: where talents meet challenges.";
->>>>>>> origin/main
     }
 
     @GetMapping("/api/health")
