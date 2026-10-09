@@ -1,0 +1,19 @@
+name: CI                      # name shown in the Actions tab
+
+on:                           # WHEN to run
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:                         # WHAT to run
+  build:                      # a job named "build"
+    runs-on: ubuntu-latest    # on a fresh Linux machine
+    steps:                    # commands, in order
+      - uses: actions/checkout@v4          # download your code
+      - uses: actions/setup-java@v4        # install Java
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven                     # speed up later runs
+      - run: ./mvnw -B verify              # build and run tests
