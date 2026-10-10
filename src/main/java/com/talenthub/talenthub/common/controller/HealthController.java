@@ -1,16 +1,17 @@
-package com.talenthub.talenthub.controller;
+package com.talenthub.talenthub.common.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.talenthub.talenthub.dto.response.HealthResponse;
-
 @RestController
-public class HelloController {
+public class HealthController {
+
+    public record HealthResponse(String status, String service) {
+    }
 
     @GetMapping("/")
     public String home() {
-        return "TalentHub: Gesuba's home for hackathons.";
+        return "TalentHub is running. Empowering talents in Gesuba, Wolaita Zone.";
     }
 
     @GetMapping("/api/health")
