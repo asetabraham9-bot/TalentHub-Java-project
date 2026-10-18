@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class InMemoryUserRepository implements UserRepository {
 
     private final ConcurrentHashMap<String, User> byEmail = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<Long, User> byId = new ConcurrentHashMap<>();
     private final AtomicLong ids = new AtomicLong();
 
     @Override
@@ -19,7 +20,13 @@ public class InMemoryUserRepository implements UserRepository {
             user.setId(ids.incrementAndGet());
         }
         byEmail.put(user.getEmail(), user);
+        byId.put(user.getId(), user);
         return user;
+    }
+
+    @Override
+    public Optional<User> findById(Long id) {
+        return Optional.ofNullable(byId.get(id));
     }
 
     @Override
